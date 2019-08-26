@@ -11,10 +11,10 @@ interface IATCMediator {
 }
 
 class ATCMediator: IATCMediator {
-    private val flight: Flight? = null
-    private val runway: Runway? = null
+    private var flight: Flight? = null
+    private var runway: Runway? = null
 
-    override val canHazLandOkay = false
+    override var canHazLandOkay = false
 
     override fun registerYerselfARunway (runway: Runway) {
         this.runway = runway
@@ -46,7 +46,7 @@ class Flight(private val atcMediator: IATCMediator) : Command {
             println("Landing Done")
             atcMediator.setLandingStatus(true)
         } else {
-            println("gotta wait bruh"
+            println("gotta wait bruh")
         }
     }
 
