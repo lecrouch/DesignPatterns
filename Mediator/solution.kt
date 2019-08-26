@@ -58,12 +58,16 @@ class Flight(private val atcMediator: IATCMediator) : Command {
 fun main (args: Array<String>) {
     val atcMediator = ATCMediator()
     val stupidPlane = Flight(atcMediator)
-    val aRunway = Runway(atcMediator)
+    val anEvenMoreStupiderPlane = Flight(atcMediator)
+    val aDumbRunway = Runway(atcMediator)
+
     atcMediator.registerYerselfAFlight(stupidPlane)
-    atcMediator.registerYerselfARunway(aRunway)
+    atcMediator.registerYerselfAFlight(anEvenMoreStupiderPlane)
+    atcMediator.registerYerselfARunway(aDumbRunway)
 
     stupidPlane.getReady()
-    aRunway.land()
+    aDumbRunway.land()
     stupidPlane.land()
+    anEvenMoreStupiderPlane.land()
 }
 
